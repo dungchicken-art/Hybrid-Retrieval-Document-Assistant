@@ -172,20 +172,6 @@ Evaluation cases are defined as an array of JSON objects:
 
 This project reports hit rate at `k` and `MRR@k` to measure retrieval effectiveness.
 
-## Interview-ready summary
-
-This project demonstrates:
-
-- end-to-end ML application design
-- CPU-first model selection and local inference
-- hybrid retrieval architecture combining dense and sparse signals
-- practical API and web UI integration
-- robustness through retrieval-only fallback behavior
-
-## Suggested resume bullets
-
-- Built a CPU-first retrieval-augmented generation system using FastAPI, sentence-transformers, BM25, and locally persisted vector indices.
-- Implemented hybrid retrieval and grounded question answering with citation-aware results and CLI/API support.
 
 ## Next improvements
 
