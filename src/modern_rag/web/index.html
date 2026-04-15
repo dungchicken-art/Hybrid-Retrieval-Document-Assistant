@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern RAG CPU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">CPU-first Retrieval-Augmented Generation</p>
+        <h1>Modern RAG that runs on a normal laptop.</h1>
+        <p class="lede">
+          Upload documents, build a local hybrid index, ask grounded questions, and inspect the retrieved sources.
+        </p>
+      </div>
+      <div class="hero-card">
+        <div class="status-line">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="health-text">Checking service...</span>
+        </div>
+        <dl>
+          <div>
+            <dt>Pipeline</dt>
+            <dd>Dense + BM25 hybrid retrieval</dd>
+          </div>
+          <div>
+            <dt>Storage</dt>
+            <dd>Local disk index</dd>
+          </div>
+          <div>
+            <dt>Generation</dt>
+            <dd>Optional OpenAI-compatible endpoint</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <main class="dashboard">
+      <section class="panel">
+        <div class="panel-head">
+          <h2>1. Upload Documents</h2>
+          <p>Add Markdown, text, JSON, or PDF files into the knowledge base.</p>
+        </div>
+        <form id="upload-form" class="stack">
+          <input id="file-input" type="file" name="files" multiple accept=".txt,.md,.pdf,.json">
+          <button type="submit">Upload Files</button>
+        </form>
+        <pre id="upload-output" class="console">No files uploaded yet.</pre>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>2. Build Index</h2>
+          <p>Chunk the documents, generate CPU embeddings, and persist the local index.</p>
+        </div>
+        <button id="ingest-button">Run Ingestion</button>
+        <pre id="ingest-output" class="console">Index not built yet.</pre>
+      </section>
+
+      <section class="panel wide">
+        <div class="panel-head">
+          <h2>3. Ask a Question</h2>
+          <p>Answers stay grounded in retrieved chunks and show citations.</p>
+        </div>
+        <form id="ask-form" class="stack">
+          <textarea id="query-input" rows="4" placeholder="Ask a question about the uploaded documents..."></textarea>
+          <button type="submit">Ask</button>
+        </form>
+        <div class="answer-grid">
+          <article class="answer-card">
+            <h3>Answer</h3>
+            <div id="answer-warning" class="answer-warning" hidden></div>
+            <div id="answer-output" class="answer-text">No answer yet.</div>
+          </article>
+          <aside class="citations-card">
+            <h3>Citations</h3>
+            <div id="citations-output" class="citation-list">No citations yet.</div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>4. Indexed Sources</h2>
+          <p>Inspect which files made it into the local knowledge base.</p>
+        </div>
+        <button id="refresh-sources">Refresh Sources</button>
+        <div id="sources-output" class="source-list">No indexed sources yet.</div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

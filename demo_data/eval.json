@@ -1,0 +1,14 @@
+[
+  {
+    "question": "What is hybrid retrieval?",
+    "expected_sources": ["demo_data/rag_overview.md"]
+  },
+  {
+    "question": "Why is a CPU-first design useful for a portfolio project?",
+    "expected_sources": ["demo_data/cpu_notes.md"]
+  },
+  {
+    "question": "Why does RAG reduce hallucination?",
+    "expected_sources": ["demo_data/rag_overview.md"]
+  }
+]
